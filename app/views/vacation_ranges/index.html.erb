@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Vacation ranges</h1>
+
+<div id="vacation_ranges">
+  <% @vacation_ranges.each do |vacation_range| %>
+    <%= render vacation_range %>
+    <p>
+      <%= link_to "Show this vacation range", vacation_range %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New vacation range", new_vacation_range_path %>

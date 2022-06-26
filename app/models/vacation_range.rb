@@ -1,0 +1,2 @@
+class VacationRange < ApplicationRecord
+end
