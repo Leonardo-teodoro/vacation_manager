@@ -57,11 +57,11 @@ class VacationRangesController < ApplicationController
       format.json { head :no_content }
     end
   end
-  # GET /vacation_ranges/eligibles
+  # GET /show/vacation_ranges/eligibles
   def show_vacation_eligibles
     @employees = Employee.where("hired_in <= ?", Date.today.years_ago(1)).where("vacation_days >= ?", 10)
   end
-  # GET /vacation_ranges/employee/1
+  # GET /list/vacation_ranges/1
   def show_employee_ranges
     @vacation_ranges = Employee.find(params[:employee_id]).vacation_ranges
   end
