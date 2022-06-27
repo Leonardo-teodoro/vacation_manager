@@ -1,27 +1,43 @@
-<%= form_with(model: vacation_range) do |form| %>
-  <% if vacation_range.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(vacation_range.errors.count, "error") %> prohibited this vacation_range from being saved:</h2>
-
-      <ul>
-        <% vacation_range.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<div class="form-container card mx-3">
+  <%= form_with(model: vacation_range, class:"mx-3") do |form| %>
+  <%=form.hidden_field :employee_id, value: form.object.employee_id%>
+    <% if vacation_range.errors.any? %>
+      <div class="alert alert-danger mt-3">
+        <h2><%= pluralize(vacation_range.errors.count, "erro") %> proíbe(m) o cadastro do período de férias:</h2>
+        <ul>
+          <% vacation_range.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <div class="input-group mb-3 d-flex">
+    <div class="col-md-2">
+      <%= form.label :start_date, "Data de início", class: "form-label" %>
+      <%= form.date_field :start_date, class:"form-control" %>
     </div>
+    
+  </div>
+  <div class="input-group mb-3 align-items-end">
+    <div class="col-md-2">
+      <%= form.label :end_date,"Data final", class: "form-label" %>
+      <%= form.date_field :end_date, class:"form-control" %>
+    </div>
+   <div class="mx-3 my-md-0 my-lg-0 my-sm-3 col-sm-12 col-xm-12 col-md-1">
+      <%= form.submit 'Enviar', :class => 'btn btn-outline-primary' %>
+    </div>
+   
+  </div>
+
+  <% if form.object.employee.vacation_ranges.any? %>
+    <div class="mx-3 my-3 my-sm-3 col-sm-12 col-xm-12 col-md-1">
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#vacationModal">
+        <%=raw_icon("card-list","Férias cadastradas")%>
+      </button>
+    </div>
+    <%= render partial: "vacation_ranges/partials/modal_employee_vacations", locals: {vacation_ranges: form.object.employee.vacation_ranges }%>
   <% end %>
+</div>
 
-  <div>
-    <%= form.label :start_date, style: "display: block" %>
-    <%= form.datetime_field :start_date %>
-  </div>
 
-  <div>
-    <%= form.label :end_date, style: "display: block" %>
-    <%= form.datetime_field :end_date %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
 <% end %>

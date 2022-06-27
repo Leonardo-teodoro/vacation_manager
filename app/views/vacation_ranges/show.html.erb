@@ -1,10 +1,6 @@
-<p style="color: green"><%= notice %></p>
+<div class="alert <%= notice.nil? ? "" : "alert-success"%> my-3"><%= notice %></div>
 
 <%= render @vacation_range %>
 
 <div>
-  <%= link_to "Edit this vacation range", edit_vacation_range_path(@vacation_range) %> |
-  <%= link_to "Back to vacation ranges", vacation_ranges_path %>
-
-  <%= button_to "Destroy this vacation range", @vacation_range, method: :delete %>
 </div>

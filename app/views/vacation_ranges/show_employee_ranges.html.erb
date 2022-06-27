@@ -1,0 +1,12 @@
+<div class="alert <%= notice.nil? ? "" : "alert-success"%>  > my-3"><%= notice %></div>
+<div class="container-fluid d-flex p-0 flex-wrap justify-content-lg-between justify-content-sm-center justify-content-xm-center">
+<h1 class="mx-3 my-3">Férias do funcionário</h1>
+  <div class="col-md-12 my-3 d-flex justify-content-center">
+  <% if @vacation_ranges.any? %>
+    <%= render @vacation_ranges.first.employee %>
+  <% end %>
+  </div>
+  <% @vacation_ranges.each do |vacation_range| %>
+    <%= render vacation_range %>
+  <% end %>
+</div>

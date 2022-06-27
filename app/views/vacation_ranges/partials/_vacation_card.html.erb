@@ -1,0 +1,22 @@
+<div id="<%= dom_id vacation_range %>" class="card text-center <%= options %>">
+    <div class="card-body text-start">
+
+      <div class="card-text">
+        <p>
+        <strong>Data de ínicio:</strong>
+        <%= date_in_Ptbr(vacation_range.start_date) %>
+        </p>
+
+        <p>
+        <strong>Data final:</strong>
+        <%= date_in_Ptbr(vacation_range.end_date) %>
+        </p>
+        <p>
+        <strong>Total de dias:</strong>
+        <%= vacation_range.range_in_days %>
+        </p>
+        <p>
+        
+      </div>
+    </div>
+  </div>

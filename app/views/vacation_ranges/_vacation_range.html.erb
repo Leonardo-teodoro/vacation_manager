@@ -1,12 +1,5 @@
-<div id="<%= dom_id vacation_range %>">
-  <p>
-    <strong>Start date:</strong>
-    <%= vacation_range.start_date %>
-  </p>
+  <% @vacation_ranges.each do |vacation_rage|%>
+    <%= render partial: "vacation_ranges/partials/vacation_card", locals: {options: "mx-3 my-3 col-md-3 text-white bg-primary border-dark", vacation_range: vacation_range }%>
+  <% end %>
 
-  <p>
-    <strong>End date:</strong>
-    <%= vacation_range.end_date %>
-  </p>
-
-</div>
+  

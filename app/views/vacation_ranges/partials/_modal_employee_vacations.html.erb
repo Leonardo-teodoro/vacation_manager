@@ -1,0 +1,26 @@
+<!-- Modal -->
+<div class="modal fade" id="vacationModal" tabindex="-1" aria-labelledby="vacationModalLabel" aria-hidden="true">
+
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="vacationModalLabel">Férias cadastradas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+      
+      <% vacation_ranges.each do |range|%>
+      
+        <div class="row col-md-12">
+       <%= render partial: "vacation_ranges/partials/vacation_card", locals: {options: "mx-3 my-3 col-md-12 text-white bg-primary border-dark", vacation_range: range }%>
+        </div>
+        
+
+      <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div> 
