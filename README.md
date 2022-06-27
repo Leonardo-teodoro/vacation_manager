@@ -1,24 +1,23 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Ruby version 3.0.0
 
-Things you may want to cover:
+# Configuration
+To install project dependencies, run: 
+```
+bundle install
 
-* Ruby version
+```
+# Database creation
+To create the database, run:
+```
+rails db:create
+```
+# Database initialization
+To initialize the database, run:
+```
+rails db:migrate
+```
+# How to run the test suite
+Tests are not implemented yet
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
