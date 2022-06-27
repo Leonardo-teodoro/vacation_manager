@@ -26,4 +26,5 @@ Tests are not implemented yet
 ```
 ./bin/dev
 ```
-
+# Documentation
+* [Class diagram](https://lucid.app/lucidchart/3de58d7f-2267-4d9e-a771-0f9af9410f5c/edit?viewport_loc=-1083%2C-411%2C4806%2C2517%2C0_0&invitationId=inv_dd703035-4c82-4e99-b8d1-1d5ed073c2ba#)
