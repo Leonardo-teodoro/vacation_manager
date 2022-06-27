@@ -59,7 +59,7 @@ class VacationRangesController < ApplicationController
   end
   # GET /vacation_ranges/eligibles
   def show_vacation_eligibles
-    @employees = Employee.where("hired_in >= ?", Date.today.years_ago(1)).where("vacation_days >= ?", 10)
+    @employees = Employee.where("hired_in <= ?", Date.today.years_ago(1)).where("vacation_days >= ?", 10)
   end
   # GET /vacation_ranges/employee/1
   def show_employee_ranges
