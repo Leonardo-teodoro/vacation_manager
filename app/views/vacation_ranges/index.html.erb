@@ -5,7 +5,7 @@
 <div class="container-fluid d-flex p-0 flex-wrap justify-content-md-between justify-content-sm-center">
 
   <% @vacation_ranges.each do |vacation_range| %>
-    <%= render vacation_range %>
+    <%= render partial: "vacation_ranges/partials/vacation_card", locals: {options: "mx-3 my-3 col-md-3 text-white bg-primary border-dark", vacation_range: vacation_range }%>
   <% end %>
 </div>
 
