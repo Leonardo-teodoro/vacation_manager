@@ -1,27 +1,53 @@
-<div id="<%= dom_id employee %>">
-  <p>
-    <strong>Name:</strong>
-    <%= employee.name %>
-  </p>
+<div id="<%= dom_id employee %>" class="card text-center mx-3 mb-3 col-md-3 text-white bg-dark">
 
-  <p>
-    <strong>Role:</strong>
-    <%= employee.role %>
-  </p>
+  <h5 class="card-header">
+    <%= employee.name %> |
+    <span class="card-subtitle mb-2 text-light">
+      <%= employee.role %>
+    </span>
+  </h5>
+  <div class="card-body text-start">
+    
+    <div class="card-text">
+    <p>
+        <strong><%= employee.active ? "Ativo" : "Inativo"%></strong>
+        
+      </p>
+      <p>
+        <strong>Dias disponíveis para férias:</strong>
+        <%= employee.vacation_days %>
+      </p>
 
-  <p>
-    <strong>Hired in:</strong>
-    <%= employee.hired_in %>
-  </p>
+      
+    </div>
+    <div class="row">
+    <strong class="col-lg-4">Contratado em:</strong>
+     <p class="text-end col-lg-8"> <%= date_in_Ptbr(employee.hired_in) %></p>
+    </div>
+   
+  </div>
 
-  <p>
-    <strong>Vacation days:</strong>
-    <%= employee.vacation_days %>
-  </p>
-
-  <p>
-    <strong>Active:</strong>
-    <%= employee.active %>
-  </p>
-
+  <div class="card-footer d-flex justify-content-evenly flex-wrap">
+      <div class="">
+      <%= link_to raw_icon("pencil-square","Editar"), 
+          edit_employee_path(employee), 
+          class: "btn btn-outline-primary",
+          data: { turbo_method: :update } %>
+      </div>
+      <div class="">
+      <%= link_to raw_icon("trash","Deletar"), 
+          employee, 
+          class: "btn btn-outline-danger",
+          data: { turbo_method: :delete, turbo_confirm: "Tem certeza?" } %>
+      </div>
+      
+  <%if employee.vacation_eligible?%>
+  <div class="">
+    <%= link_to raw_icon("emoji-laughing-fill","Cadastrar férias"), 
+          new_vacation_range_path(employee_id: employee.id), 
+          class: "btn btn-outline-warning mt-md-0 mt-sm-2"%>
+  </div>
+  
+  <% end %>
+  </div>
 </div>

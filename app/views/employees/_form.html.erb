@@ -1,42 +1,37 @@
-<%= form_with(model: employee) do |form| %>
-  <% if employee.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
-
-      <ul>
-        <% employee.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<div class="form-container card mx-3">
+  <%= form_with(model: employee, class:"mx-3") do |form| %>
+    <% if employee.errors.any? %>
+      <div class="alert alert-danger mt-3">
+        <h2><%= pluralize(employee.errors.count, "erro") %> proíbe(m) o cadastro do colaborador:</h2>
+        <ul>
+          <% employee.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <div class="input-group mb-3 d-flex">
+    <div class="col-md-4">
+      <%= form.label :name,"Nome", class:"form-label" %>
+      <%= form.text_field :name, class:"form-control" %>
     </div>
-  <% end %>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    
   </div>
-
-  <div>
-    <%= form.label :role, style: "display: block" %>
-    <%= form.text_field :role %>
+  <div class="input-group mb-3 d-flex align-items-end">
+    <div class="">
+      <%= form.label :role,"Cargo", class:"form-label" %>
+      <%= form.text_field :role, class:"form-control" %>
+    </div>
+    <div class="mx-4">
+      <%= form.label :hired_in,"Contratado em", class:"form-label" %>
+      <%= form.date_field :hired_in, class:"form-control" %>
+    </div>
+   <div class="col-md-1 col-sm-12 my-md-0 my-sm-3">
+      <%= form.submit 'Enviar', :class => 'btn btn-outline-primary' %>
+    </div>
   </div>
-
-  <div>
-    <%= form.label :hired_in, style: "display: block" %>
-    <%= form.datetime_field :hired_in %>
-  </div>
-
-  <div>
-    <%= form.label :vacation_days, style: "display: block" %>
-    <%= form.number_field :vacation_days %>
-  </div>
-
-  <div>
-    <%= form.label :active, style: "display: block" %>
-    <%= form.check_box :active %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
+</div>
+ 
 <% end %>
+
+

@@ -1,14 +1,18 @@
-<p style="color: green"><%= notice %></p>
+<div class="alert <%= notice.nil? ? "" : "alert-success"%>  > my-3"><%= notice %></div>
 
-<h1>Employees</h1>
+<h1 class="mx-3">Colaboradores</h1>
+<div class="row ms-4">
+  <div class="col-md-1">
+  <%= link_to raw_icon("plus-circle","Novo"), new_employee_path, class: "btn btn-primary my-3 mx-3" %>
+ 
+  </div>
 
-<div id="employees">
+</div>
+
+<div id="employees" class="container-fluid d-flex p-0 flex-wrap justify-content-lg-between justify-content-sm-center justify-content-xm-center">
+
   <% @employees.each do |employee| %>
     <%= render employee %>
-    <p>
-      <%= link_to "Show this employee", employee %>
-    </p>
   <% end %>
 </div>
 
-<%= link_to "New employee", new_employee_path %>
