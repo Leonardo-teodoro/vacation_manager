@@ -6,7 +6,6 @@
 To install project dependencies, run: 
 ```
 bundle install
-
 ```
 Remember to edit database.yml file with your database information
 
@@ -22,4 +21,9 @@ rails db:migrate
 ```
 # How to run the test suite
 Tests are not implemented yet
+
+# Development server to build css dependencies
+```
+./bin/dev
+```
 
