@@ -3,7 +3,7 @@ class CreateEmployees < ActiveRecord::Migration[7.0]
     create_table :employees do |t|
       t.string :name
       t.string :role
-      t.datetime :hired_in
+      t.date :hired_in
       t.integer :vacation_days
       t.boolean :active
 
