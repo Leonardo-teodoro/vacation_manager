@@ -24,7 +24,14 @@
     <strong class="col-lg-4">Contratado em:</strong>
      <p class="text-end col-lg-8"> <%= date_in_Ptbr(employee.hired_in) %></p>
     </div>
-   
+      <%if employee.vacation_ranges.any? %>
+        <div class="row">
+          <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#vacationModal">
+            <%=raw_icon("card-list","Férias cadastradas")%>
+          </button>
+        </div>
+        <%= render partial: "vacation_ranges/partials/modal_employee_vacations", locals: {vacation_ranges: employee.vacation_ranges }%>
+    <% end %>
   </div>
 
   <div class="card-footer d-flex justify-content-evenly flex-wrap">
