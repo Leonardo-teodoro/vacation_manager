@@ -8,6 +8,8 @@ To install project dependencies, run:
 bundle install
 
 ```
+Remember to edit database.yml file with your database information
+
 # Database creation
 To create the database, run:
 ```
