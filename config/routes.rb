@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   root "employees#index"
   resources :vacation_ranges
   resources :employees
-  get '/eligibles', to: 'vacation_ranges#show_vacation_eligibles', as: 'show_vacation_eligibles'
-  get 'ranges/:employee_id', to: 'vacation_ranges#show_employee_ranges', as: 'show_employee_ranges'
+  get 'new/vacation_ranges/eligibles', to: 'vacation_ranges#show_vacation_eligibles', as: 'show_vacation_eligibles'
+  get 'list/vacation_ranges/:employee_id', to: 'vacation_ranges#show_employee_ranges', as: 'show_employee_ranges'
   
  
  
